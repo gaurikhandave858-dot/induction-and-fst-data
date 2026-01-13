@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Upload & Search Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Excel Upload & Search Management System</h1>
+            <p>Upload Excel files and search participant data with cross-linked filters</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section id="upload-section" class="section-card">
+                <h2>Upload Excel File</h2>
+                <div class="upload-container">
+                    <input type="file" id="excel-file" accept=".xlsx, .xls" />
+                    <button id="upload-btn">Upload File</button>
+                </div>
+                <div id="upload-status"></div>
+            </section>
+
+            <!-- Search Section -->
+            <section id="search-section" class="section-card">
+                <h2>Search & Filter Participants</h2>
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="p-no-filter">P.No:</label>
+                        <input type="text" id="p-no-filter" placeholder="Enter P.No" />
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="mobile-filter">Mobile No:</label>
+                        <input type="text" id="mobile-filter" placeholder="Enter Mobile No" />
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="name-filter">Name:</label>
+                        <input type="text" id="name-filter" placeholder="Enter Name" />
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="trade-filter">Trade:</label>
+                        <select id="trade-filter">
+                            <option value="">All Trades</option>
+                            <option value="IT">IT</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Finance">Finance</option>
+                            <option value="HR">HR</option>
+                            <option value="Marketing">Marketing</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="gender-filter">Gender:</label>
+                        <select id="gender-filter">
+                            <option value="">All Genders</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button id="search-btn">Search</button>
+                        <button id="clear-filters-btn">Clear Filters</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="section-card">
+                <h2>Search Results</h2>
+                <div id="results-count">Showing 0 of 0 participants</div>
+                <div class="results-table-container">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>P.No</th>
+                                <th>Mobile No</th>
+                                <th>Name</th>
+                                <th>Trade</th>
+                                <th>Gender</th>
+                                <th>Day 1</th>
+                                <th>Day 2</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-tbody">
+                            <!-- Results will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pagination">
+                    <button id="prev-page" disabled>Previous</button>
+                    <span id="page-info">Page 1 of 1</span>
+                    <button id="next-page" disabled>Next</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Excel Upload & Search Management System</p>
+        </footer>
+    </div>
+
+    <!-- Modal for Participant Details -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Participant Details</h2>
+            <div id="participant-details">
+                <!-- Details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
